@@ -12,7 +12,7 @@ class Basics(commands.Cog):
         await ctx.send(f"Pong! Latency: {round(self.client.latency * 1000)}ms")
 
     @commands.command(aliases=["8ball"], brief="Get your opinions from a non-living thing")
-    async def eightBall(self, ctx):
+    async def eightball(self, ctx):
         eightBallResponses = [
         "It is certain.",
         "It is decidedly so.",

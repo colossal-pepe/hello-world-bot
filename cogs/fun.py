@@ -1,6 +1,7 @@
 import discord
 import praw
 import time
+import os
 from urllib.request import urlopen as uReq
 import urllib.request
 from bs4 import BeautifulSoup as soup
@@ -9,9 +10,12 @@ from discord.ext import commands
 class AppURLopener(urllib.request.FancyURLopener):
     version = "Mozilla/5.0"
 
+REDDIT_CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID", None)
+REDDIT_CLIENT_SECRET = os.environ.get("REDDIT_CLIENT_SECRET", None)
+
 r = praw.Reddit(
-    client_id='LRFz6CW569z_PA',
-    client_secret='8wiHNxKKt6dpl2FYYXSygkW_SQ8',
+    client_id=REDDIT_CLIENT_ID,
+    client_secret=REDDIT_CLIENT_SECRET,
     user_agent='Fetch Dank Memes Bot')
 
 class Reddit:

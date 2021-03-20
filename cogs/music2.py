@@ -74,7 +74,7 @@ class Music2(commands.Cog):
             await ctx.send("No such user.")
             return
         guild2members[str(guildid)][ctx.message.author.nick] = parsedUrl
-        print(parsedUrl)
+        await ctx.send(f"Fetched profile of {parsedUrl}.")
         dumpConnections()
     
     @commands.command(brief="Get playlists of tagged person")
@@ -108,12 +108,7 @@ class Music2(commands.Cog):
         embedObj.add_field(name="?getplaylistsfor", value="?getplaylistsfor [@the person whose playlist u wanna get]", inline=False)
         await ctx.send(embed=embedObj)
     
-    '''
-    @commands.command()
-    async def testcmd(self, ctx):
-        embedObj = IndividualEmbed("test embed", "test desc", "test name", "test val")
-        await ctx.send(embed=embedObj.makeEmbed())
-    '''
+
 def setup(client):
     client.add_cog(Music2(client))
     fetchConnections()
