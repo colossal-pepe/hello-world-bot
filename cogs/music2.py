@@ -79,6 +79,7 @@ class Music2(commands.Cog):
     
     @commands.command(brief="Get playlists of tagged person")
     async def getplaylistsfor(self, ctx, *, member: discord.Member):
+        await ctx.trigger_typing()
         if str(ctx.guild.id) not in guild2members:
             await ctx.send("No members have yet shared their profile on this server.")
             return
@@ -91,6 +92,7 @@ class Music2(commands.Cog):
     
     @commands.command(brief="Get all playlists")
     async def getallplaylists(self, ctx):
+        await ctx.trigger_typing()
         if str(ctx.guild.id) not in guild2members:
             await ctx.send("No members have yet shared their profile on this server")
             return
